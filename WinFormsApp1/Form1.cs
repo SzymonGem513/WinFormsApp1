@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using ProcessPixelCSLib;
 namespace WinFormsApp1
 {
     public partial class Form1 : Form
@@ -41,13 +42,10 @@ namespace WinFormsApp1
             {
                 for (int j = 0; j < newImage.Height; j++)
                 {
-                    //get the pixel value
+                    ProcessPixelCS processPixelObj = new ProcessPixelCS();
                     Color pixel = newImage.GetPixel(i, j);
-                    //apply the monochromatic filter
-                    int average = (pixel.R + pixel.G + pixel.B) / 3;
-                    Color newColor = Color.FromArgb(average, average, average);
-                    //set the new pixel value
-                    newImage.SetPixel(i, j, newColor);
+                    Color newPixel = processPixelObj.processPixel(pixel);
+                    newImage.SetPixel(i, j, newPixel);
                 }
             }
             sw.Stop();
@@ -63,6 +61,9 @@ namespace WinFormsApp1
             this.labelThreadsValue.Text = trackBarThreads.Value.ToString();
         }
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
 
+        }
     }
 } 
