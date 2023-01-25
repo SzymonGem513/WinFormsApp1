@@ -1,13 +1,20 @@
 using System.Diagnostics;
+using System.Runtime.InteropServices;
+using ProcessPixelCSLib;
 namespace WinFormsApp1
 {
+
     public partial class Form1 : Form
     {
+
         public Form1()
         {
             InitializeComponent();
             this.labelThreadsValue.Text = trackBarThreads.Value.ToString();
         }
+
+        [DllImport("GrayscaleASM.dll", CallingConvention = CallingConvention.StdCall)]
+        private static extern int MyProc(int test1,int test2);
 
         Bitmap loadedImage = null;
 
@@ -41,28 +48,42 @@ namespace WinFormsApp1
             {
                 for (int j = 0; j < newImage.Height; j++)
                 {
-                    //get the pixel value
+                    ProcessPixelCS processPixelObj = new ProcessPixelCS();
                     Color pixel = newImage.GetPixel(i, j);
-                    //apply the monochromatic filter
-                    int average = (pixel.R + pixel.G + pixel.B) / 3;
-                    Color newColor = Color.FromArgb(average, average, average);
-                    //set the new pixel value
-                    newImage.SetPixel(i, j, newColor);
-                }
-            }
-            sw.Stop();
-            long elapsedTicks = sw.ElapsedTicks;
-            this.labelTimeValue.Text = elapsedTicks.ToString();
+                    Color newPixel = processPixelObj.processPixel(pixel);
+                    newImage.SetPixel(i, j, newPixel);
 
+                }
+                sw.Stop();
+                long elapsedTicks = sw.ElapsedTicks;
+                this.labelTimeValue.Text = elapsedTicks.ToString();
+            }
             //display the new image
             pictureBox2.Image = newImage;
+            label5.Text = MyProc(2, 3).ToString();
+
+
+            //[DllImport("GrayscaleASM.dll")]
+            //static unsafe extern void ProcAsm2();
+
+
         }
 
-        private void trackBarThreads_Scroll(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e)
         {
-            this.labelThreadsValue.Text = trackBarThreads.Value.ToString();
+                label5.Text = "Wykonano operacje na ASM";
         }
 
 
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 } 

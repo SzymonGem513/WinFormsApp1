@@ -6,6 +6,12 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+    <Platforms>AnyCPU;x64</Platforms>
+    <BaseOutputPath>C:\Users\Szymon\source\repos\WinFormsApp1\x64\Debug</BaseOutputPath>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ProcessPixelCS\ProcessPixelCS.csproj" />
+  </ItemGroup>
 
 </Project>

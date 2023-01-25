@@ -31,8 +31,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.button2 = new System.Windows.Forms.Button();
             this.trackBarThreads = new System.Windows.Forms.TrackBar();
             this.labelThreads = new System.Windows.Forms.Label();
@@ -41,6 +39,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.labelTimeValue = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarThreads)).BeginInit();
@@ -74,35 +74,13 @@
             this.pictureBox2.TabIndex = 2;
             this.pictureBox2.TabStop = false;
             // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(27, 213);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(50, 19);
-            this.radioButton1.TabIndex = 3;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "ASM";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(27, 238);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(40, 19);
-            this.radioButton2.TabIndex = 4;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "C#";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(27, 388);
+            this.button2.Location = new System.Drawing.Point(42, 244);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 5;
-            this.button2.Text = "Start";
+            this.button2.Text = "C#";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -116,7 +94,6 @@
             this.trackBarThreads.Size = new System.Drawing.Size(472, 45);
             this.trackBarThreads.TabIndex = 6;
             this.trackBarThreads.Value = 1;
-            this.trackBarThreads.Scroll += new System.EventHandler(this.trackBarThreads_Scroll);
             // 
             // labelThreads
             // 
@@ -171,11 +148,31 @@
             this.labelTimeValue.TabIndex = 12;
             this.labelTimeValue.Text = "--------";
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(42, 290);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 13;
+            this.button3.Text = "ASM";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(27, 201);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(0, 15);
+            this.label5.TabIndex = 15;
+            this.label5.Click += new System.EventHandler(this.label5_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.labelTimeValue);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -184,13 +181,12 @@
             this.Controls.Add(this.labelThreads);
             this.Controls.Add(this.trackBarThreads);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarThreads)).EndInit();
@@ -204,8 +200,6 @@
         private Button button1;
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
-        protected RadioButton radioButton1;
-        private RadioButton radioButton2;
         private Button button2;
         private TrackBar trackBarThreads;
         private Label labelThreads;
@@ -214,5 +208,7 @@
         private Label label2;
         private Label label3;
         private Label labelTimeValue;
+        private Button button3;
+        private Label label5;
     }
 }
